@@ -3,22 +3,20 @@ package vo;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.Date;
-
 @Getter
 @AllArgsConstructor
 /** 입고 테이블 */
 public class InboundVO {
     /** 입고 아이디 */
-    private String inboundId;
+    private int inboundID;
     /** 입고일 */
-    private Date inboundDate;
+    private String inboundDate;
     /** 창고아이디 */
-    private String warehouseId;
+    private int storageID;
     /** 제품아이디 */
-    private String productId;
+    private String productID;
     /** 세션아이디 */
-    private String sectionId;
+    private String sessionID;
     /** 권한아이디 */
-    private String authorityId;
+    private String authorityID;
 }
