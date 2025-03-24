@@ -47,7 +47,8 @@ public enum LoginText {
                     "\n메뉴를 선택하세요(\"exit\"입력 시 종료): "),
 
 
-    HQ_MAINMENU("" +
+    HQ_MAINMENU("\n" +
+            "===본사관리자 메뉴===\n" +
             "1. 회원관리\n" +
             "2. 창고관리\n" +
             "3. 재고관리\n" +
@@ -57,7 +58,8 @@ public enum LoginText {
             "7. 로그아웃\n"),
 
 
-    WM_MAINMENU("" +
+    WM_MAINMENU("\n" +
+            "=== 창고관리자 메뉴===\n" +
             "1. 회원관리\n" +
             "2. 창고관리\n" +
             "3. 재고관리\n" +
@@ -66,7 +68,8 @@ public enum LoginText {
             "6. 로그아웃\n"),
 
 
-    FM_MAINMENU("" +
+    FM_MAINMENU("\n" +
+            "===가맹점주 메뉴===\n" +
             "1. 회원관리\n" +
             "2. 발주관리\n" +
             "3. 로그아웃\n"),
