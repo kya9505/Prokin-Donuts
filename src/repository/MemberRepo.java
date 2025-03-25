@@ -15,7 +15,7 @@ public interface MemberRepo {
      * [회원 등록 기능]
      * 본사관리자가 신규 창고관리자를 등록
      */
-    Optional<MemberDTO>insertMember(MemberDTO member);
+    Optional<MemberDTO>insertMember(String tableName , MemberDTO member);
 
     /*
      * [회원 수정 기능]
@@ -42,7 +42,7 @@ public interface MemberRepo {
      * 요청상태 :승인대기
      * 승인 실패의 경우 : 이미 존재하는 아이디의 경우 예외처리
      */
-    Optional<MemberRequestDTO> requestMember(MemberRequestDTO member);
+    Optional<MemberRequestDTO> insertRequestMember(String tableName ,MemberRequestDTO member);
 
     /*
      * [회원 승인 기능]
@@ -97,5 +97,5 @@ public interface MemberRepo {
 
     Optional<String> RequestMember(String id);
 
-    public Optional<MemberRequestDTO> insertRequestMember(MemberRequestDTO member);
+
 }

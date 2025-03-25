@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberDTO addMember(MemberDTO member) {
         //insertMember 반환된 객체를 result 에 저장
-        Optional<MemberDTO> result = memberRepo.insertMember(member);
+        Optional<MemberDTO> result = memberRepo.insertMember("member",member);
         //결과값을 반환, 하지만 결과값이 optional.empty면 null 반환
         return result.orElse(null);
     }
@@ -46,14 +46,16 @@ public class MemberServiceImpl implements MemberService {
     //회원 가입  요청기능
     @Override
     public MemberRequestDTO requestMember(MemberRequestDTO member) {
-        Optional<MemberRequestDTO> result = memberRepo.insertRequestMember(member);
+        Optional<MemberRequestDTO> result = memberRepo.insertRequestMember("memberrequest",member);
         return result.orElse(null);
     }
 
     //회원아이디 중복검사 기능
     @Override
     public boolean  checkId(String memberId) {
-        return memberRepo.searchLoginfo("memberNo","id",memberId).isPresent();
+        Optional<String> result = memberRepo.searchLoginfo("memberNo","id",memberId);
+        if (result != null) return false;
+        else return true;
     }
 
     //회원아이디 간편조회 기능

@@ -21,7 +21,7 @@ public class MemberRepoImpl implements MemberRepo {
 
     // 회원 등록 메서드
     @Override
-    public Optional<MemberDTO> insertMember(MemberDTO member) {
+    public Optional<MemberDTO> insertMember(String tableName, MemberDTO member) {
         conn = DBUtil.getConnection();
 
         try {
@@ -29,7 +29,7 @@ public class MemberRepoImpl implements MemberRepo {
             String sql = "{call insertMember(?,?,?,?,?,?,?,?)}";
             cs = conn.prepareCall(sql);
 
-            cs.setString(1, "member");
+            cs.setString(1, tableName);
             cs.setInt(2, member.getAuthorityId());
             cs.setString(3, member.getName());
             cs.setString(4, member.getPhoneNumber());
@@ -54,20 +54,21 @@ public class MemberRepoImpl implements MemberRepo {
         conn = DBUtil.getConnection();
 
         try {
-            String sql = "UPDATE `member` SET name = ?, phoneNumber = ?, email = ?, address = ?, id = ?, password = ? WHERE memberNo = ?";
+            String sql = "{call updateMember(?,?,?,?,?,?,?)}";
             cs = conn.prepareCall(sql);
 
-            cs.setString(1, updateMember.getName());
-            cs.setString(2, updateMember.getPhoneNumber());
-            cs.setString(3, updateMember.getEmail());
-            cs.setString(4, updateMember.getAddress());
-            cs.setString(5, updateMember.getId());
-            cs.setString(6, updateMember.getPassword());
-            cs.setInt(7, updateMember.getMemberNo());
 
-            int rs = cs.executeUpdate();
-            //실행 성공 시 객체 반환, 실패 시 빈 optional반환
-            if (rs > 0) return Optional.of(updateMember);
+            cs.setInt(1, updateMember.getMemberNo());
+            cs.setString(2, updateMember.getName());
+            cs.setString(3, updateMember.getPhoneNumber());
+            cs.setString(4, updateMember.getEmail());
+            cs.setString(5, updateMember.getAddress());
+            cs.setString(6, updateMember.getId());
+            cs.setString(7, updateMember.getPassword());
+
+            boolean flag = cs.execute();
+            if(!flag) return Optional.of(updateMember);
+
             else return Optional.empty();
 
         } catch (SQLException e) {
@@ -82,16 +83,14 @@ public class MemberRepoImpl implements MemberRepo {
         conn = DBUtil.getConnection();
 
         try {
-            String sql = "DELETE FROM `member` WHERE id = ?";
+            String sql = "{call deleteMember(?)}";
             cs = conn.prepareCall(sql);
+
             cs.setString(1, memberId);
 
-            int rs = cs.executeUpdate();
-
-
-            if (rs > 0) {
-                return Optional.of(memberId);
-            } else return Optional.empty();
+            boolean flag = cs.execute();
+            if(!flag) return Optional.of(memberId);
+            else return Optional.empty();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -100,24 +99,26 @@ public class MemberRepoImpl implements MemberRepo {
 
     // 회원 가입 요청 메서드
     @Override
-    public Optional<MemberRequestDTO> requestMember(MemberRequestDTO member) {
+    public Optional<MemberRequestDTO> insertRequestMember(String tableName , MemberRequestDTO member) {
         conn = DBUtil.getConnection();
 
         try {
 
-            cs = conn.prepareCall("insert into memberrequest (name,phoneNumber,email,address,id,password) values (?,?,?,?,?,?)");
+            String sql = "{call insertMember(?,?,?,?,?,?,?,?)}";
+            cs = conn.prepareCall(sql);
 
-
-            cs.setString(1, member.getName());
-            cs.setString(2, member.getPhoneNumber());
-            cs.setString(3, member.getEmail());
-            cs.setString(4, member.getAddress());
-            cs.setString(5, member.getId());
-            cs.setString(6, member.getPassword());
-            int rs = cs.executeUpdate();
+            cs.setString(1, tableName);
+            cs.setInt(2, member.getAuthorityId());
+            cs.setString(3, member.getName());
+            cs.setString(4, member.getPhoneNumber());
+            cs.setString(5, member.getEmail());
+            cs.setString(6, member.getAddress());
+            cs.setString(7, member.getId());
+            cs.setString(8, member.getPassword());
 
             //실행 성공 시 객체 반환, 실패 시 빈 optional반환
-            if (rs > 0) return Optional.of(member);
+            boolean flag = cs.execute();
+            if(!flag) return Optional.of(member);
             else return Optional.empty();
 
         } catch (SQLException e) {
@@ -137,10 +138,10 @@ public class MemberRepoImpl implements MemberRepo {
             cs = conn.prepareCall(sql);
 
             cs.setString(1, memberId);
-            int rs = cs.executeUpdate();
 
-            if (rs > 0) return Optional.of(memberId);
-            else Optional.empty();
+            boolean flag = cs.execute();
+            if(!flag) return Optional.of(memberId);
+            else return Optional.empty();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -242,7 +243,8 @@ public class MemberRepoImpl implements MemberRepo {
 
             rs = cs.executeQuery();
             if (rs.next()) {
-                return Optional.of(rs.getString(1)); // 첫 번째 컬럼 값 반환
+                Optional<String> result =  Optional.of(rs.getString(1));
+                return result;// 첫 번째 컬럼 값 반환
             } else return Optional.empty();
 
         } catch (SQLException e) {
@@ -281,7 +283,7 @@ public class MemberRepoImpl implements MemberRepo {
             while (rs.next()) {
                 MemberRequestDTO MemberReauestDTO = new MemberRequestDTO();
                 MemberReauestDTO.setName(rs.getString("name"));
-                MemberReauestDTO.setPhoneNumber(rs.getString("phonNumber"));
+                MemberReauestDTO.setPhoneNumber(rs.getString("phoneNumber"));
                 MemberReauestDTO.setEmail(rs.getString("email"));
                 MemberReauestDTO.setAddress(rs.getString("address"));
                 MemberReauestDTO.setId(rs.getString("id"));
@@ -314,32 +316,6 @@ public class MemberRepoImpl implements MemberRepo {
         return Optional.empty();
     }
 
-    // 회원가입요청 메서드
-    @Override
-    public Optional<MemberRequestDTO> insertRequestMember(MemberRequestDTO member) {
-        conn = DBUtil.getConnection();
 
-        try {
-
-            cs = conn.prepareCall("insert into memberrequest (name,phonNumber,email,address,id,password) values (?,?,?,?,?,?)");
-
-
-            cs.setString(1, member.getName());
-            cs.setString(2, member.getPhoneNumber());
-            cs.setString(3, member.getEmail());
-            cs.setString(4, member.getAddress());
-            cs.setString(5, member.getId());
-            cs.setString(6, member.getPassword());
-            int rs = cs.executeUpdate();
-
-            //실행 성공 시 객체 반환, 실패 시 빈 optional반환
-            if (rs > 0) return Optional.of(member);
-            else return Optional.empty();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Optional.empty();
-    }
 
 }
