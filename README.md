@@ -1,6 +1,7 @@
 <div align="center">
-    <img src="https://capsule-render.vercel.app/api?type=wave&color=FF7F00&height=180&text=Prokin’%20Donuts%20WMS&animation=&fontColor=ffffff&fontSize=70" />
+    <img src="https://capsule-render.vercel.app/api?type=wave&color=FFCC80&height=180&text=Prokin’%20Donuts%20WMS&animation=&fontColor=8B4513&fontSize=70" />
 </div>
+
 <div align="center"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🎯 프로젝트 소개 </h2>  
     <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;">
