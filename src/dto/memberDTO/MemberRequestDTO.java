@@ -10,7 +10,7 @@ public class MemberRequestDTO {
     }
 
     /** 권한 아이디 */
-    private int authorityId;
+    private int authorityId = 3;
     /** 회원 이름 */
     private String name;
     /** 회원 전화번호 */
