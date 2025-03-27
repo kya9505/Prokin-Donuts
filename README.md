@@ -1,7 +1,7 @@
-
-<div align="left">
-    <img src="https://capsule-render.vercel.app/api?type=wave&color=FFF5E1&height=180&text=Prokin’%20Donuts%20WMS&animation=&fontColor=8B4513&fontSize=70" />
+<div style="padding: 0; margin: 0; width: 100%; text-align: center;">
+    <img src="https://capsule-render.vercel.app/api?type=wave&color=FFF5E1&height=180&text=Prokin’%20Donuts%20WMS&animation=&fontColor=8B4513&fontSize=70" style="width: 100%; height: auto; display: block; margin: 0;"/>
 </div>
+
 
 <div align="left">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 프로젝트 소개 </h2>
