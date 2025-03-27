@@ -100,7 +100,7 @@
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🎮 실행 방법 </h2>
     <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;">
         1️⃣ Java 17+ & MySQL 설치<br>
-        2️⃣ database.sql 실행<br>
+        2️⃣ Notion의 database파일 실행 (MERGED.sql) <br>
         3️⃣ 프로그램 실행<br>
         mvn compile exec:java -Dexec.mainClass="com.prokindonut.Main"<br>
         4️⃣ CLI 메뉴 선택<br><br>
