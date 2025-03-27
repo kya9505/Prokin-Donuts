@@ -26,12 +26,13 @@
 <div align="left">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 👥 팀원 소개 </h2>
     <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;">
-        <p>박건희 - 팀장 | 창고 관리, 가맹점 관리</p>
-        <p>고윤아 - 서기(Notion) | 회원 관리, 로그인</p>
-        <p>최문규 - Git Hub | 입고 관리</p>
-        <p>명채 정(정명채) - ERD | 출고 관리</p>
+        <p>박건희 <a href="https://github.com/psns0122" target="_blank">#psns0122</a> - 팀장 | 창고 관리, 가맹점 관리</p>
+        <p>고윤아 <a href="https://github.com/kya9505" target="_blank">#kya9505</a> - 서기(Notion) | 회원 관리, 로그인</p>
+        <p>최문규 <a href="https://github.com/Cmk1031" target="_blank">#Cmk1031</a> - Git Hub | 입고 관리</p>
+        <p>정명채 <a href="https://github.com/jyngmyungchae" target="_blank">#jyngmyungchae</a> - ERD | 출고 관리</p>
     </div>
 </div> <br>
+
 
 <div align="left">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🎯 주요 기능 </h2>
@@ -117,53 +118,103 @@
         <p><strong>가맹점주:</strong> 가맹점주는 자신의 점포 재고를 관리하고 발주할 수 있습니다. 도넛 재고 조회 및 창고 재고 확인 기능을 사용할 수 있습니다.</p>
     </div>
 </div> <br>
+<h2>일정</h2>
 
-## 일정
+<table border="1">
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>기간</th>
+      <th>활동</th>
+      <th>비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>사전 기획</strong></td>
+      <td>3/18</td>
+      <td>기획서, 요구사항 정의서, 상세 기능 명세서, 유즈 케이스 작성</td>
+      <td>프로젝트 목적 정의</td>
+    </tr>
+    <tr>
+      <td><strong>설계</strong></td>
+      <td>3/19</td>
+      <td>플로우차트, ER 다이어그램, 패키지/클래스 다이어그램 작성</td>
+      <td>프로젝트 로직 작성</td>
+    </tr>
+    <tr>
+      <td><strong>구현</strong></td>
+      <td>3/19~3/21</td>
+      <td>MVC 패턴 적용, DB 프로시저, 트리거 등 작성</td>
+      <td>협업 툴 사용</td>
+    </tr>
+    <tr>
+      <td><strong>발표 준비</strong></td>
+      <td>3/21</td>
+      <td>산출물 정리, 성과 분석, 발표 자료 작성, 시연 영상 촬영</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>총 개발 기간</strong></td>
+      <td>3/12~3/21</td>
+      <td>(총 4일)</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table><br>
 
-| 구분       | 기간     | 활동                                                     | 비고                       |
-|------------|----------|----------------------------------------------------------|----------------------------|
-| **사전 기획**  | 3/18     | 기획서, 요구사항 정의서, 상세 기능 명세서, 유즈 케이스 작성 | 프로젝트 목적 정의           |
-| **설계**      | 3/19     | 플로우차트, ER 다이어그램, 패키지/클래스 다이어그램 작성     | 프로젝트 로직 작성           |
-| **구현**      | 3/19~3/21| MVC 패턴 적용, DB 프로시저, 트리거 등 작성                | 협업 툴 사용                 |
-| **발표 준비**  | 3/21     | 산출물 정리, 성과 분석, 발표 자료 작성, 시연 영상 촬영     |                            |
-| **총 개발 기간**| 3/12~3/21| (총 4일)                                                 |                            | 
+<h2>회고 및 피드백</h2>
 
+<h4>🔹 기능 개선 및 추가</h4>
+<ul>
+  <li><strong>바코드 시스템 도입</strong></li>
+  <li><strong>식품 유통기한 데이터 추가</strong></li>
+  <li><strong>예외 처리 강화</strong></li>
+  <li><strong>정규 표현식 적용</strong></li>
+  <li><strong>인증 번호 이메일 발송</strong></li>
+</ul>
 
-## 회고 및 피드백
-#### 🔹 기능 개선 및 추가
-- **바코드 시스템 도입**
-- **식품 유통기한 데이터 추가**
-- **예외 처리 강화**
-- **정규 표현식 적용**
-- **인증 번호 이메일 발송**
+<h4>🔹 데이터베이스 및 시스템 구조</h4>
+<ul>
+  <li><strong>DB 구축을 우선순위로 진행</strong> (클라우드 DB 활용)</li>
+  <li><strong>member request 필드명 오타 수정</strong> (`phonNumber → phoneNumber`)</li>
+</ul>
 
-#### 🔹 데이터베이스 및 시스템 구조
-- **DB 구축을 우선순위로 진행** (클라우드 DB 활용)
-- **member request 필드명 오타 수정** (`phonNumber → phoneNumber`)
+<h4>🔹 개발 및 코드 품질</h4>
+<ul>
+  <li><strong>기능을 축소하더라도 완성도를 높이기</strong> (핵심 기능 선정)</li>
+  <li><strong>중간중간 단위 테스트 및 코드 테스트 수행</strong> (최종 머지가 아닌 지속적 점검)</li>
+  <li><strong>각자의 PR에 대한 코드 리뷰 진행</strong></li>
+</ul>
 
-#### 🔹 개발 및 코드 품질
-- **기능을 축소하더라도 완성도를 높이기** (핵심 기능 선정)
-- **중간중간 단위 테스트 및 코드 테스트 수행** (최종 머지가 아닌 지속적 점검)
-- **각자의 PR에 대한 코드 리뷰 진행**
-
-#### 🔹 발표 및 문서화
-- **발표 시 각 과정의 행동 원리와 이유 설명**
-- **아이디어 공유 및 코드 설명 시간을 갖기**
-- **아이디어는 적극적으로 내되, 회의 시간을 효율적으로 활용** <br>
+<h4>🔹 발표 및 문서화</h4>
+<ul>
+  <li><strong>발표 시 각 과정의 행동 원리와 이유 설명</strong></li>
+  <li><strong>아이디어 공유 및 코드 설명 시간을 갖기</strong></li>
+  <li><strong>아이디어는 적극적으로 내되, 회의 시간을 효율적으로 활용</strong></li>
+</ul>
 
 <div align="left">
-    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 👥 기여 방법 (팀원 전용) </h2>
-    <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;">
-        이 프로젝트는 팀원들만 기여할 수 있습니다.<br>
-        1. 기능 추가 전 팀원과 논의<br>
-        2. feature/기능명 브랜치 생성 후 개발<br>
-        3. dev 브랜치로 PR 후 코드 리뷰<br>
-        4. 승인되면 main 브랜치에 병합<br>
-        5. 커밋 메시지 형식:<br>
-        [feat] 발주 자동화 기능 추가<br>
-        [fix] 재고 조회 오류 수정
+    <h2 style="border-bottom: 2px solid #4CAF50; color: #333; font-size: 24px; padding-bottom: 10px;">
+        👥 기여 방법 (팀원 전용)
+    </h2>
+    <div style="font-weight: 600; font-size: 16px; text-align: left; color: #333; line-height: 1.6; background-color: #f4f4f4; padding: 20px; border-radius: 8px;">
+        이 프로젝트는 팀원들만 기여할 수 있습니다.<br><br>
+        <ul style="padding-left: 20px;">
+            <li><strong>1.</strong> 기능 추가 전 팀원과 논의</li>
+            <li><strong>2.</strong> <code>feature/기능명</code> 브랜치 생성 후 개발</li>
+            <li><strong>3.</strong> <code>dev</code> 브랜치로 PR 후 코드 리뷰</li>
+            <li><strong>4.</strong> 승인되면 <code>main</code> 브랜치에 병합</li>
+            <li><strong>5.</strong> 커밋 메시지 형식:
+                <ul style="padding-left: 20px;">
+                    <li><code>[feat] 발주 자동화 기능 추가</code></li>
+                    <li><code>[fix] 재고 조회 오류 수정</code></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-</div> <br> <br>
+</div>
+
 
 <div align="left">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 📜 라이선스 </h2>
