@@ -47,16 +47,23 @@
         ❌ 시스템 종료 - 시스템 종료 기능을 통해 사용자가 종료할 수 있도록 합니다.<br>
        </div> <br>
 
+
 <div align="left">
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🛠 기술 스택 </h2>
     <div style="text-align: center;">
-        <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white">
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
-        <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
-        <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white">
-        <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
-        <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white">
-        <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=white">
+        
+### Back-end
+<div>
+<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Java.png?raw=true" width="80">
+<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Mysql.png?raw=true" width="80">
+
+</div>
+
+### Tools
+<div>
+<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Github.png?raw=true" width="80">
+<img src="https://github.com/yewon-Noh/readme-template/blob/main/skills/Notion.png?raw=true" width="80">
+<br />
     </div>
 </div>
 </div> <br>
@@ -167,31 +174,31 @@
 
 <h4>🔹 기능 개선 및 추가</h4>
 <ul>
-  <li><strong>바코드 시스템 도입</strong></li>
-  <li><strong>식품 유통기한 데이터 추가</strong></li>
-  <li><strong>예외 처리 강화</strong></li>
-  <li><strong>정규 표현식 적용</strong></li>
-  <li><strong>인증 번호 이메일 발송</strong></li>
+  <li>바코드 시스템 도입</li>
+  <li>식품 유통기한 데이터 추가</li>
+  <li>예외 처리 강화</li>
+  <li>정규 표현식 적용</li>
+  <li>인증 번호 이메일 발송</li>
 </ul>
 
 <h4>🔹 데이터베이스 및 시스템 구조</h4>
 <ul>
-  <li><strong>DB 구축을 우선순위로 진행</strong> (클라우드 DB 활용)</li>
-  <li><strong>member request 필드명 오타 수정</strong> (`phonNumber → phoneNumber`)</li>
+  <li>DB 구축을 우선순위로 진행(클라우드 DB 활용)</li>
+  <li>member request 필드명 오타 수정(`phonNumber → phoneNumber`)</li>
 </ul>
 
 <h4>🔹 개발 및 코드 품질</h4>
 <ul>
-  <li><strong>기능을 축소하더라도 완성도를 높이기</strong> (핵심 기능 선정)</li>
-  <li><strong>중간중간 단위 테스트 및 코드 테스트 수행</strong> (최종 머지가 아닌 지속적 점검)</li>
-  <li><strong>각자의 PR에 대한 코드 리뷰 진행</strong></li>
+  <li>기능을 축소하더라도 완성도를 높이기 (핵심 기능 선정)</li>
+  <li>중간중간 단위 테스트 및 코드 테스트 수행(최종 머지가 아닌 지속적 점검)</li>
+  <li>각자의 PR에 대한 코드 리뷰 진행></li>
 </ul>
 
 <h4>🔹 발표 및 문서화</h4>
 <ul>
-  <li><strong>발표 시 각 과정의 행동 원리와 이유 설명</strong></li>
-  <li><strong>아이디어 공유 및 코드 설명 시간을 갖기</strong></li>
-  <li><strong>아이디어는 적극적으로 내되, 회의 시간을 효율적으로 활용</strong></li>
+  <li>발표 시 각 과정의 행동 원리와 이유 설명</li>
+  <li>아이디어 공유 및 코드 설명 시간을 갖기</li>
+  <li>아이디어는 적극적으로 내되, 회의 시간을 효율적으로 활용</li>
 </ul>
 
 <div align="left">
