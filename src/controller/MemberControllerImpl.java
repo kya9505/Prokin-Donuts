@@ -160,9 +160,11 @@ public class MemberControllerImpl implements MemberController {
         OutputUtil.output(MemberText.SEARCH_MEMBER_SIMPLE_HEADER.getText());
         MemberDTO result = memberService.searchMember(InputUtil.getInput(MemberText.SEARCH_MEMBER_ID.getText()).get());
         if(result == null ) OutputUtil.output(MemberErrorCode.MEMBER_NOT_FOUND.getText());
-        OutputUtil.output("이름: "+result.getName()+
+        else {
+            OutputUtil.output("이름: "+result.getName()+
                 " 아이디 : "+result.getId()+
                 " 이메일: "+result.getEmail());
+        }
     }
     public void searchDitailMenu(){
         OutputUtil.output(MemberText.SEARCH_MEMBER_DETAIL_HEADER.getText());
