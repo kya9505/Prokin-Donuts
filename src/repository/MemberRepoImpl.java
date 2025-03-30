@@ -3,12 +3,10 @@ package repository;
 import config.DBUtil;
 import dto.memberDTO.MemberDTO;
 import dto.memberDTO.MemberRequestDTO;
-import vo.memberVO.MemberReauestVO;
-import vo.memberVO.MemberVO;
+
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +38,7 @@ public class MemberRepoImpl implements MemberRepo {
 
             //실행 성공 시 객체 반환, 실패 시 빈 optional반환
             boolean flag = cs.execute();
-            if(!flag) return Optional.of(member);
+            return Optional.ofNullable(!flag ? member : null);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,9 +65,7 @@ public class MemberRepoImpl implements MemberRepo {
             cs.setString(7, updateMember.getPassword());
 
             boolean flag = cs.execute();
-            if(!flag) return Optional.of(updateMember);
-
-            else return Optional.empty();
+            return Optional.ofNullable(!flag ? updateMember : null);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -89,8 +85,7 @@ public class MemberRepoImpl implements MemberRepo {
             cs.setString(1, memberId);
 
             boolean flag = cs.execute();
-            if(!flag) return Optional.of(memberId);
-            else return Optional.empty();
+            return Optional.ofNullable(!flag ? memberId : null);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -118,8 +113,7 @@ public class MemberRepoImpl implements MemberRepo {
 
             //실행 성공 시 객체 반환, 실패 시 빈 optional반환
             boolean flag = cs.execute();
-            if(!flag) return Optional.of(member);
-            else return Optional.empty();
+            return Optional.ofNullable(!flag ? member : null);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,8 +134,7 @@ public class MemberRepoImpl implements MemberRepo {
             cs.setString(1, memberId);
 
             boolean flag = cs.execute();
-            if(!flag) return Optional.of(memberId);
-            else return Optional.empty();
+            return Optional.ofNullable(!flag ? memberId : null);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -181,11 +174,8 @@ public class MemberRepoImpl implements MemberRepo {
                 loadMemberList.add(memberDTO);
             }
 
-            if (!loadMemberList.isEmpty()) {
-                return Optional.of(loadMemberList);
-            } else {
-                return Optional.of(Collections.emptyList());
-            }
+            // 리스트가 비었다면 Optional.empty() 반환
+            return Optional.of(loadMemberList).filter(s -> !s.isEmpty());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -217,12 +207,8 @@ public class MemberRepoImpl implements MemberRepo {
                 allLoadMemberList.add(memberDTO);
             }
 
-
-            if (!allLoadMemberList.isEmpty()) {
-                return Optional.of(allLoadMemberList);
-            } else {
-                return Optional.of(Collections.emptyList());
-            }
+            // 리스트가 비었다면 Optional.empty() 반환
+            return Optional.of(allLoadMemberList).filter(s->!s.isEmpty());
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -242,11 +228,10 @@ public class MemberRepoImpl implements MemberRepo {
             cs.setString(3, searchValue);
 
             rs = cs.executeQuery();
-            if (rs.next()) {
-                Optional<String> result =  Optional.of(rs.getString(1));
-                return result;// 첫 번째 컬럼 값 반환
-            } else return Optional.empty();
+            String result =  rs.getString(1);
 
+            // result가 비었다면 Optional.empty() 반환
+            return Optional.ofNullable(result).filter(s -> !s.isEmpty());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -263,8 +248,7 @@ public class MemberRepoImpl implements MemberRepo {
             cs.setString(1,memberId);
 
             boolean flag = cs.execute();
-            if(!flag) return Optional.of(memberId);
-            else return Optional.empty();
+            return Optional.ofNullable(!flag ? memberId : null);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -291,7 +275,8 @@ public class MemberRepoImpl implements MemberRepo {
                 MemberReauestDTO.setRequest(rs.getString("request"));
                 allLoadRequestMemberList.add(MemberReauestDTO);
             }
-            return Optional.of(allLoadRequestMemberList);
+            // 리스트가 비었다면 Optional.empty() 반환
+            return Optional.of(allLoadRequestMemberList).filter(s->!s.isEmpty());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -306,10 +291,8 @@ public class MemberRepoImpl implements MemberRepo {
             cs = conn.prepareCall("SELECT request FROM memberrequest WHERE id =?");
             cs.setString(1, id);
             rs = cs.executeQuery();
-            if (rs.next()) {
-                return Optional.of(rs.getString(1));
-                // 첫 번째 컬럼 값 반환
-            } else return Optional.empty();
+            String result = rs.getString(1);
+            return Optional.ofNullable(result).filter(s -> !s.isEmpty());
         } catch (SQLException e) {
             e.printStackTrace();
         }
