@@ -5,6 +5,7 @@ import common.login.LoginText;
 import common.member.MemberText;
 import common.util.InputUtil;
 import common.util.LoginUtil;
+import common.util.OutputUtil;
 import dto.memberDTO.MemberDTO;
 import dto.memberDTO.MemberRequestDTO;
 import repository.MemberRepoImpl;
@@ -44,24 +45,24 @@ public class LoginControllerImpl implements LoginController{
     }
 
     public void login() {
-        System.out.println(LoginText.LOGIN_HEADER.getText());
+        OutputUtil.output(LoginText.LOGIN_HEADER.getText());
 
         String id = InputUtil.getInput(LoginText.LOGIN_NO.getText()).get();
         String password = InputUtil.getInput(LoginText.LOGIN_PASSWORD.getText()).get();
         String requst = memberService.searchRequestMember(id);
         if (requst !=null && requst.equals("대기")) {
-            System.out.println(LoginErrorCode.LOGIN_FAIL_REQUEST.getText());
+            OutputUtil.output(LoginErrorCode.LOGIN_FAIL_REQUEST.getText());
         } else {
             String logstatus = memberService.logstatus(id);
-            if (logstatus.equals("login")) System.out.println(LoginErrorCode.LOGIN_FAIL.getText()); //로그인 상태 확인
+            if (logstatus.equals("login"))  OutputUtil.output(LoginErrorCode.LOGIN_FAIL.getText()); //로그인 상태 확인
             else {
                 MemberDTO loginMember = memberService.searchMember(id);
 
-                if (loginMember == null) System.out.println(LoginErrorCode.LOGIN_NOT_FOUND.getText());
+                if (loginMember == null)  OutputUtil.output(LoginErrorCode.LOGIN_NOT_FOUND.getText());
                 else {
                     String result = memberService.logIn(id, password);
                     LoginUtil.setLoginMember(loginMember);
-                    System.out.println(LoginText.LOGIN_SUCCESS.getText());
+                    OutputUtil.output(LoginText.LOGIN_SUCCESS.getText());
                     this.loginFlag = true;
                 }
             }
@@ -69,51 +70,51 @@ public class LoginControllerImpl implements LoginController{
     }
 
     public void memberRequest(){
-        System.out.println(LoginText.REQUEST_HEADER.getText());
+        OutputUtil.output(LoginText.REQUEST_HEADER.getText());
         MemberRequestDTO memberRequest = newMemberRequest();
         if(!memberService.checkId(memberRequest.getId())) { //아이디 중복확인
             MemberRequestDTO result = memberService.requestMember(memberRequest);
-            if(result == null) System.out.println(LoginErrorCode.REQUEST_NOT_FOUND.getText());
-            else System.out.println(LoginText.REQUEST_SUCCESS.getText());
-        }else System.out.println(LoginErrorCode.REQUEST_FAIL.getText());
+            if(result == null)  OutputUtil.output(LoginErrorCode.REQUEST_NOT_FOUND.getText());
+            else  OutputUtil.output(LoginText.REQUEST_SUCCESS.getText());
+        }else  OutputUtil.output(LoginErrorCode.REQUEST_FAIL.getText());
     }
 
     public void findId(){
-        System.out.println(LoginText.SEARCH_ID_HEADER.getText());
+        OutputUtil.output(LoginText.SEARCH_ID_HEADER.getText());
         String email = InputUtil.getInput(LoginText.SEARCH_email.getText()).get();
 
         String code = memberService.randomNumber(email);
-        System.out.println(LoginText.RANDOM_NUM.getText()+code);
+        OutputUtil.output(LoginText.RANDOM_NUM.getText()+code);
 
         String userCode = InputUtil.getInput(LoginText.RANDOM_NUM_CHECK.getText()).get();
 
         if(memberService.checkRandomNumber(email,userCode)) {
-            System.out.println(LoginText.RANDOM_NUM_CHECK_S.getText());
+            OutputUtil.output(LoginText.RANDOM_NUM_CHECK_S.getText());
             String result = memberService.findId(email);
-            System.out.println(LoginText.FIND_ID.getText()+result);
+            OutputUtil.output(LoginText.FIND_ID.getText()+result);
         }
-        else System.out.println(LoginErrorCode.RANDOM_NUM_CHECK_F.getText());
+        else  OutputUtil.output(LoginErrorCode.RANDOM_NUM_CHECK_F.getText());
     }
     public void findPassword(){
-        System.out.println(LoginText.SEARCH_P_HEADER.getText());
+        OutputUtil.output(LoginText.SEARCH_P_HEADER.getText());
         String id = InputUtil.getInput(LoginText.SEARCH_ID.getText()).get();
         String email = InputUtil.getInput(LoginText.SEARCH_email.getText()).get();
 
         String userEmail = memberService.findemail(id);
 
         String code = memberService.randomNumber(userEmail);
-        System.out.println(LoginText.RANDOM_NUM.getText()+code);
+        OutputUtil.output(LoginText.RANDOM_NUM.getText()+code);
 
         String userCode = InputUtil.getInput(LoginText.RANDOM_NUM_CHECK.getText()).get();
 
         if(memberService.checkRandomNumber(userEmail,userCode)
                 && userEmail.equals(email)
         ){
-            System.out.println(LoginText.RANDOM_NUM_CHECK_S.getText());
+            OutputUtil.output(LoginText.RANDOM_NUM_CHECK_S.getText());
             String result = memberService.findPassword(id);
-            System.out.println(LoginText.FIND_P.getText()+result);
+            OutputUtil.output(LoginText.FIND_P.getText()+result);
         }
-        else System.out.println(LoginErrorCode.RANDOM_NUM_CHECK_F.getText());
+        else  OutputUtil.output(LoginErrorCode.RANDOM_NUM_CHECK_F.getText());
     }
 
 
@@ -121,12 +122,12 @@ public class LoginControllerImpl implements LoginController{
         String id = LoginUtil.getLoginMember().getId();
         String logstatus = memberService.logstatus(id); //로그인 상태 확인
         if (logstatus.equals("logout"))
-            System.out.println(LoginErrorCode.LOGIN_FAIL_OUT.getText());
+            OutputUtil.output(LoginErrorCode.LOGIN_FAIL_OUT.getText());
         else {
             String result = memberService.logOut(id);
-            if(result == null) System.out.println(LoginErrorCode.LOGOUT_FAIL.getText());
+            if(result == null)  OutputUtil.output(LoginErrorCode.LOGOUT_FAIL.getText());
             else {
-                System.out.println(LoginText.LOGOUT_SUCCESS.getText());
+                OutputUtil.output(LoginText.LOGOUT_SUCCESS.getText());
                 LoginUtil.setLoginMember(null);
             }
         }
