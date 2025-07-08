@@ -203,8 +203,7 @@
 <h3>회고를 반영한 2차 프로젝트 보러가기</h3>
 <a href="https://github.com/kya9505/Prokin-Donuts-Web/tree/main" target="_blank" style="font-weight: bold; color: #4CAF50; text-decoration: none;">
 👉web기반의 2차 프로젝트 보러가기
-<br>
-    
+
 
 <div align="left">
     <h2 style="border-bottom: 2px solid #4CAF50; color: #333; font-size: 24px; padding-bottom: 10px;">
