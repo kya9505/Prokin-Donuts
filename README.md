@@ -171,7 +171,6 @@
 </table><br>
 
 <h2>회고 및 피드백</h2>
-
 <h4>🔹 기능 개선 및 추가</h4>
 <ul>
   <li>바코드 시스템 도입</li>
@@ -200,6 +199,12 @@
   <li>아이디어 공유 및 코드 설명 시간을 갖기</li>
   <li>아이디어는 적극적으로 내되, 회의 시간을 효율적으로 활용</li>
 </ul>
+
+<h3>회고를 반영한 2차 프로젝트 보러가기</h3>
+<a href="https://github.com/kya9505/Prokin-Donuts-Web/tree/main" target="_blank" style="font-weight: bold; color: #4CAF50; text-decoration: none;">
+👉web기반의 2차 프로젝트 보러가기
+<br>
+    
 
 <div align="left">
     <h2 style="border-bottom: 2px solid #4CAF50; color: #333; font-size: 24px; padding-bottom: 10px;">
